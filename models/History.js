@@ -8,7 +8,7 @@ const historySchema = new mongoose.Schema(
     apiResponse: { type: String },
     finalResult: { type: String },
   },
-  { timestamps: true } // 👈 createdAt, updatedAt auto add
+  { timestamps: true } 
 );
 
 module.exports = mongoose.model("History", historySchema);

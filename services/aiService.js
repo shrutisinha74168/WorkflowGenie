@@ -1,4 +1,3 @@
-// Dual-mode AI: use real OpenAI when possible, otherwise fallback to a mock response
 const OpenAI = require("openai");
 require("dotenv").config();
 
@@ -10,7 +9,8 @@ if (OPENAI_KEY) {
   client = new OpenAI({ apiKey: OPENAI_KEY });
 }
 
-const MOCK_RESPONSE = "It's a great day to be outside";
+// Update mock response to match assignment example flow
+const MOCK_RESPONSE = "Perfect day to chill outside!";
 
 const callAI = async (prompt) => {
   // if no key, immediately return mock
@@ -33,7 +33,10 @@ const callAI = async (prompt) => {
     return MOCK_RESPONSE;
   } catch (err) {
     // log full error for debugging
-    console.error("AI call error (will fallback to mock):", err?.response?.data || err?.message || err);
+    console.error(
+      "AI call error (will fallback to mock):",
+      err?.response?.data || err?.message || err
+    );
     return MOCK_RESPONSE;
   }
 };
